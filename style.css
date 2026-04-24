@@ -1,0 +1,482 @@
+/* =============================================
+   DELICE ET PLUS — Style Responsive Complet
+   Palette originale conservée: rose/bordeaux
+============================================= */
+
+/* Variables */
+:root {
+    --rose-clair: rgb(198, 171, 171);
+    --rose-navbar: rgb(202, 154, 154);
+    --or: #f1c40f;
+    --texte-sombre: #333;
+    --blanc: #fff;
+    --ombre: rgba(0,0,0,0.1);
+    --navbar-height: 65px;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--rose-clair);
+    padding-top: var(--navbar-height);
+    font-family: 'Lato', sans-serif;
+    color: var(--texte-sombre);
+}
+
+/* =============================================
+   NAVBAR
+============================================= */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--rose-navbar);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    color: var(--blanc);
+    letter-spacing: 1px;
+}
+
+/* Liens nav — desktop */
+nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    color: var(--or);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Bouton hamburger — caché sur desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--blanc);
+    border-radius: 3px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Animation hamburger → X */
+.menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* =============================================
+   HERO SECTION
+============================================= */
+.hero {
+    min-height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                var(--rose-clair);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-text h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    color: var(--blanc);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: var(--or);
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 36px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* =============================================
+   SECTION CHEF / SLOGAN
+============================================= */
+.Chef {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('Chefresto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    min-height: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+#Chef-title {
+    font-family: 'Lobster', cursive;
+    font-size: clamp(1.3rem, 4vw, 2.8rem);
+    color: var(--blanc);
+    text-align: center;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    max-width: 800px;
+    line-height: 1.4;
+}
+
+/* =============================================
+   TITRES DE SECTIONS
+============================================= */
+.section-title {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--blanc);
+    margin: 40px 0 10px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+/* =============================================
+   GRILLE PHOTOS
+============================================= */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+    background: rgba(255,255,255,0.25);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+figure:hover {
+    transform: translateY(-5px);
+}
+
+.img-responsive {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+figure:hover .img-responsive {
+    transform: scale(1.05);
+}
+
+figcaption {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--texte-sombre);
+    padding: 12px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+figcaption span {
+    color: #8B0000;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* =============================================
+   RESERVATION
+============================================= */
+.reservation-section {
+    background: rgba(255,255,255,0.3);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.reservation-section h2 {
+    font-family: 'Lobster', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--blanc);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.reservation-form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #5a2020;
+}
+
+.form-group input {
+    padding: 12px 14px;
+    border: 2px solid rgba(202, 154, 154, 0.5);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.8);
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--rose-navbar);
+    background: var(--blanc);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: var(--rose-navbar);
+    color: var(--blanc);
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    background: #a05050;
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   À PROPOS
+============================================= */
+.apropos-section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.apropos-section h2 {
+    font-family: 'Lobster', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--blanc);
+    margin-bottom: 24px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.apropos-section p {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    line-height: 1.8;
+    color: #4a2020;
+    background: rgba(255,255,255,0.35);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+    background-color: var(--rose-navbar);
+    color: var(--blanc);
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-info p {
+    font-size: 1rem;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (max 768px)
+============================================= */
+@media (max-width: 768px) {
+    /* Navbar mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--rose-navbar);
+        padding: 10px 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        gap: 0;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        font-size: 1rem;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    /* Formulaire en colonne */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Grille 2 colonnes sur tablet */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Chef {
+        background-attachment: scroll;
+        min-height: 300px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (max 480px)
+============================================= */
+@media (max-width: 480px) {
+    /* Grille 1 colonne sur mobile */
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 14px;
+    }
+
+    .img-responsive {
+        height: 200px;
+    }
+
+    .hero {
+        min-height: 50vh;
+        padding: 30px 16px;
+    }
+
+    .Chef {
+        min-height: 250px;
+        padding: 30px 16px;
+    }
+
+    .reservation-section,
+    .apropos-section {
+        padding: 30px 16px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 30px 16px 16px;
+    }
+
+    .footer-info {
+        align-items: center;
+    }
+}
